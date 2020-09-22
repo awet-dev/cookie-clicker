@@ -6,7 +6,6 @@ const multiplierBtn = document.querySelector("#multiplier");
 
 let pointsPerClick = 0;
 multiplierBtn.onclick = () => {
-    scoreCard *= multiplier
     pointsPerClick = 1;
     pointsPerClick *= multiplier;
     multiplier += 2;
