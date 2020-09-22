@@ -2,17 +2,24 @@ const clickButton = document.querySelector('.button');
 let counterLabel = document.querySelector('.counter');
 let scoreCard = 0;
 let multiplier = 1;
+let multiplePrice = 10;
 const multiplierBtn = document.querySelector("#multiplier");
 
 let pointsPerClick = 0;
 multiplierBtn.onclick = () => {
-    pointsPerClick = 1;
-    pointsPerClick *= multiplier;
-    multiplier += 2;
+    if (scoreCard >= multiplePrice) {
+        pointsPerClick = 1;
+        pointsPerClick *= multiplier;
+        multiplier += 2;
+        scoreCard -= multiplePrice;
+    } else {
+        alert("The score is not enough!")
+    }
 }
+
 clickButton.onclick = () => {
     scoreCard++;
-   scoreCard += pointsPerClick;
+    scoreCard += pointsPerClick;
     counterLabel.innerHTML = `${scoreCard}`;
 }
 
