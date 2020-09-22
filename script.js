@@ -11,8 +11,9 @@ multiplierBtn.onclick = () => {
         pointsPerClick = 1;
         pointsPerClick *= multiplier;
         multiplier += 2;
+        multiplierBtn.innerHTML = `X${multiplier -1}`;
         scoreCard -= multiplePrice;
-        multiplePrice += (0.2*multiplePrice)
+        multiplePrice += Math.floor(0.2*multiplePrice);
     } else {
         alert("The score is not enough!")
     }
