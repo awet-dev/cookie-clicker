@@ -5,11 +5,14 @@ let multiplier = 1;
 let multiplePrice = 10;
 const multiplierBtn = document.querySelector("#multiplier");
 const upgradePrice = document.querySelector(".upgradePrice");
+const autoClick = document.querySelector('#auto-clicker');
+let autoPrice = 10;
+let autoAmount = 0;
 
-let pointsPerClick = 0;
+
+let pointsPerClick = 1;
 multiplierBtn.onclick = () => {
     if (scoreCard >= multiplePrice) {
-        pointsPerClick = 1;
         pointsPerClick *= multiplier;
         multiplier += 2;
         multiplierBtn.innerHTML = `X${multiplier -1}`;
@@ -23,8 +26,26 @@ multiplierBtn.onclick = () => {
 
 clickButton.onclick = () => {
     scoreCard++;
-    scoreCard += pointsPerClick;
+    scoreCard *= pointsPerClick;
     counterLabel.innerHTML = `${scoreCard}`;
+}
+//AUTOCLICK TEST
+
+
+autoClick.onclick = () => {
+    if (scoreCard >= autoPrice){
+        autoAmount++;
+        counterLabel.innerHTML = `${scoreCard}`;
+        scoreCard -= autoPrice;
+
+    }else {
+        alert('You do not have enough to cheat!');
+    }
+setInterval(() =>{
+ scoreCard = scoreCard + autoAmount * pointsPerClick;
+    counterLabel.innerHTML = `${scoreCard}`;
+}, 1000)
+
 }
 
 /*
