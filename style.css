@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+
+}
+
+.header {
+    margin-top: 2%;
+    font-size: 36px;
+    font-family: 'Englebert', sans-serif;
+    text-shadow: 2px 2px pink;
+    text-align: center;
+}
+
+.container-cookie {
+    max-height: 100vh;
+    text-align: center;
+}
+
+button {
+    width: 200px;
+    height: 80px;
+}
+
+.multiply,
+.auto-click,
+.bonus {
+    margin-bottom: 2em;
+}

@@ -6,17 +6,29 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Englebert&display=swap" rel="stylesheet">
     <title>Cookie Clicker</title>
 </head>
 <body>
+
+<div class="header">CIS & AWET IN THE MORNING</div>
     <div class="container-cookie">
         <button id="startButton" class="button" type="submit">Start</button>
         <label class="counter"></label>
         <hr/>
-        <button id="multiplier">multiplier</button>
-        <button id="auto-clicker">auto click</button>
-        <button id="bonusBtn">bonus button</button>
-        <div class="upgradePrice"></div>
+        <div class="multiply">
+            <button id="multiplier">multiplier</button>
+            <div class="upgradePrice"></div>
+        </div>
+        <div class="auto-click">
+            <button id="auto-clicker">auto click</button>
+            <div class="auto-click-price"></div>
+        </div>
+        <div class="bonus">
+            <button id="bonusBtn">bonus button</button>
+            <div id="bonusPrice"></div>
+        </div>
+
     </div>
 
 <script src="test.js"></script>
