@@ -2,14 +2,14 @@ const clickButton = document.querySelector('.button');
 let counterLabel = document.querySelector('.counter');
 let scoreCard = 0;
 
-let multiplier = 1;
+let multiplier = 2;
 let multiplePrice = 10;
 const multiplierBtn = document.querySelector("#multiplier");
 
 const upgradePrice = document.querySelector(".upgradePrice");
 const autoClick = document.querySelector('#auto-clicker');
 const bonusBtn = document.querySelector("#bonusBtn");
-let autoPrice = 10;
+let autoPrice = 200;
 let autoAmount = 0;
 let bonusPrice = 10;
 let remainingSec = 10;
@@ -19,7 +19,6 @@ let pointsPerClick = 1;
 multiplierBtn.onclick = () => {
     if (scoreCard >= multiplePrice) {
         pointsPerClick *= multiplier;
-        multiplier += 2;
         multiplierBtn.innerHTML = `X${multiplier -1}`;
         scoreCard -= multiplePrice;
         multiplePrice += Math.floor(0.2*multiplePrice);
@@ -31,11 +30,11 @@ multiplierBtn.onclick = () => {
 bonusBtn.onclick = () => {
     if (scoreCard >= bonusPrice){
         let interval = setInterval(() => {
-            pointsPerClick *=2;
             remainingSec--;
             bonusBtn.innerHTML = `${remainingSec} sec`;
             if(remainingSec == 0){
                 clearInterval(interval)
+                pointsPerClick = 1;
             }
         }, 1000)
     }
