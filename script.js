@@ -6,8 +6,11 @@ let multiplePrice = 10;
 const multiplierBtn = document.querySelector("#multiplier");
 const upgradePrice = document.querySelector(".upgradePrice");
 const autoClick = document.querySelector('#auto-clicker');
+const bonusBtn = document.querySelector("#bonusBtn");
 let autoPrice = 10;
 let autoAmount = 0;
+let bonusPrice = 10;
+let remainingSec = 10;
 
 
 let pointsPerClick = 1;
@@ -29,8 +32,25 @@ clickButton.onclick = () => {
     scoreCard *= pointsPerClick;
     counterLabel.innerHTML = `${scoreCard}`;
 }
-//AUTOCLICK TEST
 
+bonusBtn.onclick = () => {
+    if (scoreCard >= bonusPrice) {
+        let interval = setInterval(()=> {
+            document.querySelector(".button").onclick = () => {
+                scoreCard++;
+                scoreCard *= 2*pointsPerClick;
+                counterLabel.innerHTML = `${scoreCard}`;
+            }
+            remainingSec--;
+            bonusBtn.innerHTML = `${remainingSec}Sec`;
+            if (remainingSec == 0) {
+                clearInterval(interval);
+            }
+        }, 1000);
+    } else {
+        alert("The score is not enough to buy bonus!")
+    }
+}
 
 autoClick.onclick = () => {
     if (scoreCard >= autoPrice){
