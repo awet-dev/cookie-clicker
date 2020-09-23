@@ -17,28 +17,33 @@ let autoClickPrice = document.querySelector('.auto-click-price');
 //let autoAmount = 0;
 let autoPrice = 200;
 
+const bonusClick = document.querySelector('#bonusBtn');
+let bonusClickPrice = document.querySelector('#bonusPrice');
+let bonusPrice = 5;
+let timeLeft = 10;
+let bonus = true;
 
 //FUNCTIONS
 
 //STARTBUTTON
-clickButton.onclick = () =>{
-   if (multiplier == 0) {
-       scoreCard += pointsPerClick;
-       update()
-   }else{
-       scoreCard += (pointsPerClick * multiplier)
-       update()
-   }
+clickButton.onclick = () => {
+    if (multiplier == 0) {
+        scoreCard += pointsPerClick;
+        update()
+    } else {
+        scoreCard += (pointsPerClick * multiplier)
+        update()
+    }
 }
 //MULTIPLIER
 
 multiplierBtn.onclick = () => {
-    if (scoreCard >= multiplePrice){
+    if (scoreCard >= multiplePrice) {
         scoreCard -= multiplePrice;
-        multiplier = multiplier +2;
+        multiplier = multiplier + 2;
 //BUTTON INNERHTML WILL ONLY CHANGE WHEN CALLED UPON
         multiplierBtn.innerHTML = `x${multiplier}`;
-        multiplePrice += Math.floor(0.7*multiplePrice);
+        multiplePrice += Math.floor(0.7 * multiplePrice);
 
         update()
     } else {
@@ -49,25 +54,43 @@ multiplierBtn.onclick = () => {
 //AUTOCLICKER
 
 autoClick.onclick = () => {
-    if (scoreCard >= autoPrice){
+    if (scoreCard >= autoPrice) {
         scoreCard -= autoPrice;
-        autoPrice += Math.floor(0.7*autoPrice);
+        autoPrice += Math.floor(0.7 * autoPrice);
         update();
 
-    }else {
+    } else {
         alert('NOT ENOUGH COOKIES!');
     }
-    setInterval(() =>{
+    setInterval(() => {
         scoreCard++;
         update()
     }, 1000)
 
 }
+//BONUS BUTTON
+/*bonusClick.onclick = () => {
+    if (scoreCard >= bonusPrice) {
+        scoreCard -= bonusPrice;
+        bonusPrice += Math.floor(5 * bonusPrice);
+        update()
+        let bonusInterval = setInterval(() => {
+
+        }, 1000)
+
+    } else {
+        alert('NOT ENOUGH COOKIES!');
+    }
+}
+
+ */
+
 
 //UPDATE
 
 let update = () => {
     counterLabel.innerHTML = `${scoreCard}`;
     upgradePrice.innerHTML = `a multiplier costs ${multiplePrice} thingymabobs.`;
-    autoClickPrice.innerHTML = `an autoclicker costs ${autoPrice} thingymabobs.`
+    autoClickPrice.innerHTML = `an autoclicker costs ${autoPrice} thingymabobs.`;
+    bonusClickPrice.innerHTML = `a bonus clicker costs ${bonusPrice} thingymabobs.`;
 }
