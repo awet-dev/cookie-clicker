@@ -1,28 +1,58 @@
 body {
     margin: 0;
+    background-image: url("assets/Cookie-Monster-Wallpaper-HD.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 
 }
 
 .header {
-    margin-top: 2%;
+    margin-top: 1%;
+    margin-bottom: 2%;
     font-size: 36px;
     font-family: 'Englebert', sans-serif;
-    text-shadow: 2px 2px pink;
+    color: #f0f1f3;
+    text-shadow: 3px 3px #031068;
     text-align: center;
 }
 
 .container-cookie {
     max-height: 100vh;
-    text-align: center;
+    margin-left: 20%;
+    color: #f0f1f3;
+    text-shadow: 2px 2px #031068;
+    font-size: 20px;
+    font-weight: 900;
+    font-family: 'Englebert', sans-serif;
 }
+
+hr {
+    opacity: 0%;
+}
+
 
 button {
     width: 200px;
     height: 80px;
+    border-radius: 15px;
+    margin-bottom: 5px;
+    background-color: rgba(238, 179, 245, 0.6);
+    border: none;
+    cursor: pointer;
+    color: #f0f1f3;
+    font-size: 24px;
+    font-weight: 900;
+    font-family: 'Englebert', sans-serif;
+    text-transform: uppercase;
+}
+
+button:hover{
+    box-shadow: 2px 2px 2px 2px navajowhite;
 }
 
 .multiply,
 .auto-click,
 .bonus {
     margin-bottom: 2em;
+
 }
