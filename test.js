@@ -1,3 +1,5 @@
+//CONSTANTS AND VARIABLES
+
 let scoreCard = 0;
 let pointsPerClick = 1;
 
@@ -9,11 +11,16 @@ const multiplierBtn = document.querySelector("#multiplier");
 let upgradePrice = document.querySelector('.upgradePrice');
 let multiplier = 0;
 let multiplePrice = 20;
+
 const autoClick = document.querySelector('.auto-click');
 let autoClickPrice = document.querySelector('.auto-click-price');
-let autoAmount = 0;
+//let autoAmount = 0;
 let autoPrice = 200;
 
+
+//FUNCTIONS
+
+//STARTBUTTON
 clickButton.onclick = () =>{
    if (multiplier == 0) {
        scoreCard += pointsPerClick;
@@ -23,12 +30,13 @@ clickButton.onclick = () =>{
        update()
    }
 }
+//MULTIPLIER
 
 multiplierBtn.onclick = () => {
     if (scoreCard >= multiplePrice){
         scoreCard -= multiplePrice;
         multiplier = multiplier +2;
-
+//BUTTON INNERHTML WILL ONLY CHANGE WHEN CALLED UPON
         multiplierBtn.innerHTML = `x${multiplier}`;
         multiplePrice += Math.floor(0.7*multiplePrice);
 
@@ -38,6 +46,7 @@ multiplierBtn.onclick = () => {
     }
 }
 
+//AUTOCLICKER
 
 autoClick.onclick = () => {
     if (scoreCard >= autoPrice){
@@ -46,7 +55,7 @@ autoClick.onclick = () => {
         update();
 
     }else {
-        alert('You do not have enough to cheat!');
+        alert('NOT ENOUGH COOKIES!');
     }
     setInterval(() =>{
         scoreCard++;
@@ -54,6 +63,8 @@ autoClick.onclick = () => {
     }, 1000)
 
 }
+
+//UPDATE
 
 let update = () => {
     counterLabel.innerHTML = `${scoreCard}`;
