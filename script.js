@@ -1,9 +1,11 @@
 const clickButton = document.querySelector('.button');
 let counterLabel = document.querySelector('.counter');
 let scoreCard = 0;
+
 let multiplier = 1;
 let multiplePrice = 10;
 const multiplierBtn = document.querySelector("#multiplier");
+
 const upgradePrice = document.querySelector(".upgradePrice");
 const autoClick = document.querySelector('#auto-clicker');
 let autoPrice = 10;
