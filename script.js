@@ -11,9 +11,8 @@ let autoPrice = 10;
 let autoAmount = 0;
 let bonusPrice = 10;
 let remainingSec = 10;
-
-
 let pointsPerClick = 1;
+
 multiplierBtn.onclick = () => {
     if (scoreCard >= multiplePrice) {
         pointsPerClick *= multiplier;
@@ -27,24 +26,30 @@ multiplierBtn.onclick = () => {
     }
 }
 
-clickButton.onclick = () => {
+const normalBtn = ()=> {
     scoreCard++;
     scoreCard *= pointsPerClick;
     counterLabel.innerHTML = `${scoreCard}`;
+}
+clickButton.addEventListener("click", normalBtn);
+
+const doubleScore = ()=> {
+    clickButton.addEventListener("click", ()=> {
+        scoreCard++;
+        scoreCard *= 2;
+        counterLabel.innerHTML = `${scoreCard}`;
+    });
+    remainingSec--;
+    bonusBtn.innerHTML = `${remainingSec}Sec`;
 }
 
 bonusBtn.onclick = () => {
     if (scoreCard >= bonusPrice) {
         let interval = setInterval(()=> {
-            document.querySelector(".button").onclick = () => {
-                scoreCard++;
-                scoreCard *= 2*pointsPerClick;
-                counterLabel.innerHTML = `${scoreCard}`;
-            }
-            remainingSec--;
-            bonusBtn.innerHTML = `${remainingSec}Sec`;
+            doubleScore();
             if (remainingSec == 0) {
                 clearInterval(interval);
+                remainingSec = 30;
             }
         }, 1000);
     } else {
