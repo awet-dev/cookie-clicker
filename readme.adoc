@@ -85,7 +85,7 @@ JavaScript.
 
 === Resources
 
-* http://orteil.dashnet.org/cookieclicker/[cookie clicker]
+`*` http://orteil.dashnet.org/cookieclicker/[cookie clicker]
 * https://particle-clicker.web.cern.ch/particle-clicker/[particle clicker]
 
 

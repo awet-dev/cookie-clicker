@@ -1,101 +1,115 @@
-const clickButton = document.querySelector('.button');
-let counterLabel = document.querySelector('.counter');
-let scoreCard = 0;
-
-let multiplier = 2;
-let multiplePrice = 10;
+const startBtn = document.querySelector("#startBtn");
+const counterLabel = document.querySelector("#counterLabel");
 const multiplierBtn = document.querySelector("#multiplier");
-
-const upgradePrice = document.querySelector(".upgradePrice");
-const autoClick = document.querySelector('#auto-clicker');
+const autoClicker = document.querySelector("#auto-clicker");
 const bonusBtn = document.querySelector("#bonusBtn");
-let autoPrice = 200;
-let autoAmount = 0;
+
+let multiplierCounter = 1;
+let multiplierPrice = 10;
+let autoClickerPrice = 10;
 let bonusPrice = 10;
-let remainingSec = 10;
+let stopper = "";
+let inActiveBonus = "";
+let score = 0;
+let remainingSec = 30;
 
-let pointsPerClick = 1;
+autoClicker.disabled = true;
+multiplierBtn.disabled = true;
+bonusBtn.disabled = true;
 
-multiplierBtn.onclick = () => {
-    if (scoreCard >= multiplePrice) {
-        pointsPerClick *= multiplier;
-        multiplierBtn.innerHTML = `X${multiplier -1}`;
-        scoreCard -= multiplePrice;
-        multiplePrice += Math.floor(0.2*multiplePrice);
-        upgradePrice.innerHTML = multiplePrice;
+const bonusFun = ()=> {
+    score += (2*multiplierCounter);
+    counterLabel.innerHTML = `${score} Cookies`;
+    if (score >= autoClickerPrice && stopper == "") {
+        autoClicker.disabled = false;
     } else {
-        alert("The score is not enough!")
+        autoClicker.disabled = true;
+    }
+    if (score >= multiplierPrice) {
+        multiplierBtn.disabled = false;
+    } else {
+        multiplierBtn.disabled = true;
     }
 }
-bonusBtn.onclick = () => {
-    if (scoreCard >= bonusPrice){
-        let interval = setInterval(() => {
+bonusBtn.addEventListener("click", ()=> {
+    if (score >= bonusPrice) {
+        score -= bonusPrice;
+        counterLabel.innerHTML = `${score} Cookies`;
+
+        const interval = setInterval(()=> {
             remainingSec--;
-            bonusBtn.innerHTML = `${remainingSec} sec`;
-            if(remainingSec == 0){
-                clearInterval(interval)
-                pointsPerClick = 1;
+            bonusBtn.innerHTML = `${remainingSec} Sec`;
+            if (remainingSec == 0) {
+                bonusBtn.innerHTML = "Bonus";
+                clearInterval(interval);
             }
         }, 1000)
+        bonusBtn.disabled = true;
+        inActiveBonus = "stop"
+    } else {
+        bonusBtn.disabled = true;
     }
+})
 
+multiplierBtn.onclick = ()=> {
+    if (score >= multiplierPrice) {
+        multiplierCounter++;
+        score -= multiplierPrice;
+        counterLabel.innerHTML = `${score} Cookies`;
+        multiplierPrice += 10;
+        multiplierBtn.innerHTML = `X${multiplierCounter} Upgrade ${multiplierPrice}`;
+    } else {
+        multiplierBtn.disabled = true;
+    }
 }
 
-
-const normalBtn = ()=> {
-    scoreCard++;
-    scoreCard *= pointsPerClick;
-    counterLabel.innerHTML = `${scoreCard}`;
-}
-clickButton.addEventListener("click", normalBtn);
-
-const doubleScore = ()=> {
-    clickButton.addEventListener("click", ()=> {
-        scoreCard++;
-        scoreCard *= 2;
-        counterLabel.innerHTML = `${scoreCard}`;
-    });
-    remainingSec--;
-    bonusBtn.innerHTML = `${remainingSec}Sec`;
-}
-
-bonusBtn.onclick = () => {
-    if (scoreCard >= bonusPrice) {
-        let interval = setInterval(()=> {
-            doubleScore();
-            if (remainingSec == 0) {
-                clearInterval(interval);
-                remainingSec = 30;
+autoClicker.addEventListener("click", ()=> {
+    if (score >= autoClickerPrice) {
+        score -= autoClickerPrice;
+        counterLabel.innerHTML = `${score} Cookies`;
+        setInterval(()=> {
+            if (remainingSec == 30 || remainingSec == 0) {
+                update();
+            } else {
+                bonusFun();
+            }
+            if (score >= multiplierPrice) {
+                multiplierBtn.disabled = false;
+            } else {
+                multiplierBtn.disabled = true;
             }
         }, 1000);
+        autoClicker.disabled = true;
+        stopper = "stop"
     } else {
-        alert("The score is not enough to buy bonus!")
+        autoClicker.disabled = true;
+    }
+});
+
+const update = ()=> {
+    score += multiplierCounter;
+    counterLabel.innerHTML = `${score} Cookies`;
+    if (score >= autoClickerPrice && stopper == "") {
+        autoClicker.disabled = false;
+    } else {
+        autoClicker.disabled = true;
+    }
+    if (score >= multiplierPrice) {
+        multiplierBtn.disabled = false;
+    } else {
+        multiplierBtn.disabled = true;
+    }
+    if (score >= bonusPrice && inActiveBonus == "") {
+        bonusBtn.disabled = false;
+    } else {
+        bonusBtn.disabled = true;
     }
 }
 
-
-autoClick.onclick = () => {
-    if (scoreCard >= autoPrice){
-        autoAmount++;
-        counterLabel.innerHTML = `${scoreCard}`;
-        scoreCard -= autoPrice;
-
-    }else {
-        alert('You do not have enough to cheat!');
+startBtn.addEventListener("click", ()=> {
+    if (remainingSec == 30 || remainingSec == 0) {
+        update();
+    } else {
+        bonusFun();
     }
-setInterval(() =>{
- scoreCard = scoreCard + autoAmount * pointsPerClick;
-    counterLabel.innerHTML = `${scoreCard}`;
-}, 1000)
-
-}
-
-/*
-
-points per click = 1
-
-button multiplier (starts at 2)
-
-click button = > points per click 2
-
- */
+});

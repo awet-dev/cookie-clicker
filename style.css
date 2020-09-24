@@ -1,0 +1,54 @@
+.cookie-container {
+  width: 50%;
+  padding: 25px;
+  margin: 5rem auto;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 5px gray;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#logo {
+  display: block;
+  width: 100px;
+  border-radius: 50%;
+  height: auto;
+}
+
+.cookie-des {
+  text-transform: capitalize;
+  font-size: 25px;
+}
+
+#counterLabel {
+  font-size: 20px;
+}
+
+.center {
+  width: 100%;
+}
+
+#startBtn {
+  display: block;
+  border-radius: 50%;
+  width: 150px;
+  margin: auto;
+  cursor: pointer;
+}
+
+.store {
+  display: flex;
+  justify-content: space-around;
+}
+
+.store > button {
+  font-size: 20px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+/*# sourceMappingURL=style.css.map */
