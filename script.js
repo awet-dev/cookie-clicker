@@ -9,7 +9,6 @@ let multiplierPrice = 50;
 let autoClickerPrice = 150;
 let bonusPrice = 100;
 let stopper = "";
-let inActiveBonus = "";
 let score = 0;
 let remainingSec = 30;
 
@@ -35,17 +34,17 @@ bonusBtn.addEventListener("click", ()=> {
     if (score >= bonusPrice) {
         score -= bonusPrice;
         counterLabel.innerHTML = `${score} Cookies`;
-
+        bonusPrice += 50
         const interval = setInterval(()=> {
             remainingSec--;
-            bonusBtn.innerHTML = `${remainingSec} Sec`;
+            bonusBtn.innerHTML = `${remainingSec}s upgrade ${bonusPrice}$`;
             if (remainingSec == 0) {
-                bonusBtn.innerHTML = "Bonus";
+                bonusBtn.innerHTML = `Bonus ${bonusPrice}$`;
+                remainingSec = 30;
                 clearInterval(interval);
             }
         }, 1000)
         bonusBtn.disabled = true;
-        inActiveBonus = "stop"
     } else {
         bonusBtn.disabled = true;
     }
@@ -57,7 +56,7 @@ multiplierBtn.onclick = ()=> {
         score -= multiplierPrice;
         counterLabel.innerHTML = `${score} Cookies`;
         multiplierPrice += 50;
-        multiplierBtn.innerHTML = `X${multiplierCounter} Upgrade ${multiplierPrice}`;
+        multiplierBtn.innerHTML = `X${multiplierCounter} Upgrade ${multiplierPrice}$`;
     } else {
         multiplierBtn.disabled = true;
     }
@@ -99,7 +98,7 @@ const update = ()=> {
     } else {
         multiplierBtn.disabled = true;
     }
-    if (score >= bonusPrice && inActiveBonus == "") {
+    if (score >= bonusPrice) {
         bonusBtn.disabled = false;
     } else {
         bonusBtn.disabled = true;
@@ -113,6 +112,3 @@ startBtn.addEventListener("click", ()=> {
         bonusFun();
     }
 });
-
-
-//this is a comment
