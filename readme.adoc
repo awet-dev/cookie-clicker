@@ -75,6 +75,16 @@ Implement yet another improvement to buy, the _bonus_. It should grant the
 player a boost in score of _200%_ per click for _30 seconds_. When purchased the
 player should see a timer with the remaining time inside the bonus button.
 
+
+BUTTON WITH BONUS
+        X200 EACH CLICK - value of StartButton (w multiplier too)
+        30 SECONDS COUNTDOWN
+        DISPLAY REMAINING TIME
+        PURCHASE IT WITH SCORECARD (SCORECARD - BONUS PRICE)
+
+
+
+
 .Step 12: deactivate the buttons
 Make it so that, if the player doesn't have the points to purchase a multiplier,
 an auto-click or an other bonus, he can't.
