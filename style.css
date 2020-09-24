@@ -1,115 +1,54 @@
-<<<<<<< HEAD
 .cookie-container {
-  width: 50%;
-  padding: 25px;
-  margin: 5rem auto;
-  border-radius: 10px;
-  box-shadow: 5px 5px 5px 5px gray;
+    width: 50%;
+    padding: 25px;
+    margin: 5rem auto;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px gray;
 }
 
 header {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 #logo {
-  display: block;
-  width: 100px;
-  border-radius: 50%;
-  height: auto;
+    display: block;
+    width: 100px;
+    border-radius: 50%;
+    height: auto;
 }
 
 .cookie-des {
-  text-transform: capitalize;
-  font-size: 25px;
+    text-transform: capitalize;
+    font-size: 25px;
 }
 
 #counterLabel {
-  font-size: 20px;
+    font-size: 20px;
 }
 
 .center {
-  width: 100%;
+    width: 100%;
 }
 
 #startBtn {
-  display: block;
-  border-radius: 50%;
-  width: 150px;
-  margin: auto;
-  cursor: pointer;
+    display: block;
+    border-radius: 50%;
+    width: 150px;
+    margin: auto;
+    cursor: pointer;
 }
 
 .store {
-  display: flex;
-  justify-content: space-around;
+    display: flex;
+    justify-content: space-around;
 }
 
 .store > button {
-  font-size: 20px;
-  border-radius: 5px;
-  margin-top: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    margin-top: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */
-=======
-body {
-    margin: 0;
-    background-image: url("https://raw.githubusercontent.com/awet100/cookie-clicker/master/assets/Cookie-Monster-Wallpaper-HD.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-
-}
-
-.header {
-    margin-top: 1%;
-    margin-bottom: 2%;
-    font-size: 36px;
-    font-family: 'Englebert', sans-serif;
-    color: #f0f1f3;
-    text-shadow: 3px 3px #031068;
-    text-align: center;
-}
-
-.container-cookie {
-    max-height: 100vh;
-    margin-left: 20%;
-    color: #f0f1f3;
-    text-shadow: 2px 2px #031068;
-    font-size: 20px;
-    font-weight: 900;
-    font-family: 'Englebert', sans-serif;
-}
-
-hr {
-    opacity: 0%;
-}
-
-
-button {
-    width: 200px;
-    height: 80px;
-    border-radius: 15px;
-    margin-bottom: 5px;
-    background-color: rgba(238, 179, 245, 0.6);
-    border: none;
-    cursor: pointer;
-    color: #f0f1f3;
-    font-size: 24px;
-    font-weight: 900;
-    font-family: 'Englebert', sans-serif;
-    text-transform: uppercase;
-}
-
-button:hover{
-    box-shadow: 2px 2px 2px 2px navajowhite;
-}
-
-.multiply,
-.auto-click,
-.bonus {
-    margin-bottom: 2em;
-
-}
->>>>>>> 17a3d52157e1ba1208b88e0e63ec4b70ead140c3
