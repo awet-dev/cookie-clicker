@@ -5,9 +5,9 @@ const autoClicker = document.querySelector("#auto-clicker");
 const bonusBtn = document.querySelector("#bonusBtn");
 
 let multiplierCounter = 1;
-let multiplierPrice = 10;
-let autoClickerPrice = 10;
-let bonusPrice = 10;
+let multiplierPrice = 50;
+let autoClickerPrice = 150;
+let bonusPrice = 100;
 let stopper = "";
 let inActiveBonus = "";
 let score = 0;
@@ -56,7 +56,7 @@ multiplierBtn.onclick = ()=> {
         multiplierCounter++;
         score -= multiplierPrice;
         counterLabel.innerHTML = `${score} Cookies`;
-        multiplierPrice += 10;
+        multiplierPrice += 50;
         multiplierBtn.innerHTML = `X${multiplierCounter} Upgrade ${multiplierPrice}`;
     } else {
         multiplierBtn.disabled = true;
